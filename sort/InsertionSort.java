@@ -1,27 +1,35 @@
+import java.util.*;
+
+
+
+
 public class InsertionSort
 {
-    public static void sort(List<T extends< ? super T> array) 
+    public static  <T extends Comparable<? super T>>  void 
+            sort(T[]  array) 
     {
-        for(int i = 1; i < array.size(); i ++ ) 
+        for(int i = 1; i < array.length; i ++ ) 
         {
-            Comparable<? super T> key = array.get(i);
+            T key = array[i];
             int j=i;
-            for(; j>0 && key.compareTo(array.get(j-1))<0;j--)
+            for(; j>0 && key.compareTo(array[j-1])<0;j--)
             {
-                array.set(j,array.get(j-1));
+                array[j]=array[j-1];
             }
-            array.set(j,key);
+            array[j]=key;
         }
     }
     
+
+    
     public static void main(String [] args )
     {
-        List<Integer> array = new ArrayList<Integer>();
-        array.add(1);
-        array.add(3);
-        array.add(2);
+        Integer[] array = {1,3,2};
         
         sort(array);
         
     }
+
+    
 }
+
